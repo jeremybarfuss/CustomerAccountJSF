@@ -4,7 +4,6 @@ import ch.hearc.ig.odi.serie6.exceptions.AccountAlreadyExistException;
 import ch.hearc.ig.odi.serie6.exceptions.CustomerAlreadyExistException;
 import ch.hearc.ig.odi.serie6.exceptions.UnknownAccountException;
 import ch.hearc.ig.odi.serie6.exceptions.UnknownCustomerException;
-import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -17,7 +16,6 @@ public class Bank {
     private String name;
     private HashMap<String, Account> accounts = new HashMap<>();
     private HashMap<Integer, Customer> customers = new HashMap<>();
-    private HashMap<Integer, Individual> individuals = new HashMap<>();
 
     public Bank(int number, String name) {
         this.number = number;
@@ -48,23 +46,17 @@ public class Bank {
         }
     }
 
-    public Individual addIndividual(int number, String firstName, String lastName, Date p_birthdate, String p_email) throws CustomerAlreadyExistException {
-        Individual i = new Individual(number, firstName, lastName, p_birthdate, p_email);
-        if (this.individuals.get(number) == null) {
-            this.individuals.put(number, i);
+    public void addCustomer(int number, String firstName, String lastName) throws CustomerAlreadyExistException {
+        if (this.customers.get(number) == null) {
+            this.customers.put(number, new Customer(number, firstName, lastName));
         } else {
             throw new CustomerAlreadyExistException();
         }
-        
-        return i;
     }
 
-    
-    public Company addCompany(int number, String companyName, String phone, String fax) throws CustomerAlreadyExistException {
-        if (this.customers.get(number) == null) {
-            Company comp = new Company(number, companyName, phone, fax);
-            this.customers.put(number, comp);
-            return comp;
+    public void addCustomer(Customer c) throws CustomerAlreadyExistException {
+        if (this.customers.get(c.getNumber()) == null) {
+            this.customers.put(c.getNumber(), c);
         } else {
             throw new CustomerAlreadyExistException();
         }

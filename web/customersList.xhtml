@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><h:outputText value="#{resrc.customersListTitre}" /></title>
+    </h:head>
+    <h:body>
+        <h:dataTable value="#{customersBean.customers}" var="cust">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{resrc.numero}" />
+                </f:facet>
+                <h:outputText value="#{cust.number}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{resrc.prenom}" />
+                </f:facet>
+                <h:outputText value="#{cust.firstName}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{resrc.nom}" />
+                </f:facet>
+                <h:outputText value="#{cust.lastName}" />
+            </h:column>
+        </h:dataTable>
+        <h:form>
+            <h:commandButton value="#{resrc.ajouter}" action="createCustomer" />
+        </h:form>
+
+    </h:body>
+</html>

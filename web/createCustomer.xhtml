@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><h:outputText value="#{resrc.createCustomerTitre}" /></title>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="#{resrc.ajouterClient}" /></h1>
+        <h:form>
+            <h:outputLabel value="#{resrc.numero} : " for="numero" />
+            <h:inputText id="numero" required="true" requiredMessage="#{resrc.numeroObligatoire}" value="#{customerCreateBean.number}" /><br />
+            <h:outputLabel value="#{resrc.nom} : " for="nom" />
+            <h:inputText id="nom" required="true" requiredMessage="#{resrc.nomObligatoire}" value="#{customerCreateBean.lastName}" /><br />
+            <h:outputLabel value="#{resrc.prenom} : " for="prenom" />
+            <h:inputText id="prenom" required="true" requiredMessage="#{resrc.prenomObligatoire}" value="#{customerCreateBean.firstName }" /><br />
+
+            <h:commandButton action="#{customerCreateBean.ajouterClient()}" value="#{resrc.valider}" />
+
+        </h:form>
+        <h:form>
+            <h:commandButton action="retour" value="#{resrc.annuler}" />
+        </h:form>
+        <h:messages />
+    </h:body>
+</html>
