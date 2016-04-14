@@ -66,7 +66,7 @@ public class Customer {
      *
      * @param number
      * @return Account
-     * @throws ch.hearc.ig.odi.serie3.exceptions.UnknownAccountException
+     * @throws ch.hearc.ig.odi.serie6.exceptions.UnknownAccountException
      */
     public Account getAccountByNumber(String number) throws UnknownAccountException {
         if (this.accounts.get(number) != null) {

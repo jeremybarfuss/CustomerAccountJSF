@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><h:outputText value="#{resrc.customerDetailsTitre}" /></title>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="#{resrc.customerDetailsTitre}" /></h1>
+        
+        <h:panelGrid columns="2">
+            <h:outputLabel><h:outputText value="#{resrc.numero} :" /></h:outputLabel>
+            <h:outputText value="#{customerDetailsBean.customer.number}" />
+            <h:outputLabel><h:outputText value="#{resrc.prenom} :" /></h:outputLabel>
+            <h:outputText value="#{customerDetailsBean.customer.firstName}" />
+            <h:outputLabel><h:outputText value="#{resrc.nom} :" /></h:outputLabel>
+            <h:outputText value="#{customerDetailsBean.customer.lastName}" />
+        </h:panelGrid>
+        
+        <h2><h:outputText value="#{resrc.comptesClient}" /></h2>
+        <h:dataTable value="#{customerDetailsBean.accountsList}" var="account">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{resrc.numero}" />
+                </f:facet>
+                <h:outputText value="#{account.number}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{resrc.libelle}" />
+                </f:facet>
+                <h:outputText value="#{account.name}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{resrc.solde}" />
+                </f:facet>
+                <h:outputText value="#{account.balance}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{resrc.taux}" />
+                </f:facet>
+                <h:outputText value="#{account.rate}" />
+            </h:column>
+        </h:dataTable>
+        <h:button value="#{resrc.retourAccueil}" outcome="customersList" />
+
+    </h:body>
+</html>

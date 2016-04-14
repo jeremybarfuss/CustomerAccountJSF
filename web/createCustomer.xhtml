@@ -15,12 +15,11 @@
             <h:outputLabel value="#{resrc.prenom} : " for="prenom" />
             <h:inputText id="prenom" required="true" requiredMessage="#{resrc.prenomObligatoire}" value="#{customerCreateBean.firstName }" /><br />
 
+            <h:commandButton type="reset" value="#{resrc.reinit}" />
             <h:commandButton action="#{customerCreateBean.ajouterClient()}" value="#{resrc.valider}" />
 
         </h:form>
-        <h:form>
-            <h:commandButton action="retour" value="#{resrc.annuler}" />
-        </h:form>
+        <h:button value="#{resrc.annuler}" outcome="customersList" />
         <h:messages />
     </h:body>
 </html>

@@ -3,14 +3,39 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-              <application>
-                  <locale-config>
-                      <default-locale>fr</default-locale>
-                      <supported-locale>fr</supported-locale>
-                  </locale-config>
-                  <resource-bundle>
-                      <base-name>ch.hearc.ig.odi.serie6.presentation.bundle.Messages</base-name>
-                      <description>msg</description>
-                  </resource-bundle>
-              </application>
+    <application>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>fr</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>ch.hearc.ig.odi.serie6.presentation.bundle.Resources</base-name>
+            <var>resrc</var>
+        </resource-bundle>
+    </application>
+              
+    <navigation-rule>
+        <from-view-id>/createCustomer.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>valider</from-outcome>
+            <to-view-id>/createCustomerOk.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>retour</from-outcome>
+            <to-view-id>/customersList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <managed-bean>
+        <managed-bean-name>customersBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie6.beans.CustomersBean</managed-bean-class>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>customerCreateBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie6.beans.CustomerCreateBean</managed-bean-class>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>customerDetailsBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie6.beans.CustomerDetailsBean</managed-bean-class>
+    </managed-bean>
 </faces-config>

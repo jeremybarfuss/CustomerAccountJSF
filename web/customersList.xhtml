@@ -7,6 +7,7 @@
         <title><h:outputText value="#{resrc.customersListTitre}" /></title>
     </h:head>
     <h:body>
+        <h1><h:outputText value="#{resrc.customersListTitre}" /></h1>
         <h:dataTable value="#{customersBean.customers}" var="cust">
             <h:column>
                 <f:facet name="header">
@@ -25,6 +26,13 @@
                     <h:outputText value="#{resrc.nom}" />
                 </f:facet>
                 <h:outputText value="#{cust.lastName}" />
+            </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton value="#{resrc.details}" action="customerDetails">
+                        <f:actionListener binding="#{customerDetailsBean.setCustomer(cust)}" />
+                    </h:commandButton>
+                </h:form>
             </h:column>
         </h:dataTable>
         <h:form>
