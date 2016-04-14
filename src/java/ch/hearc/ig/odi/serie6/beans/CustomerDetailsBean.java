@@ -2,18 +2,19 @@ package ch.hearc.ig.odi.serie6.beans;
 
 import ch.hearc.ig.odi.serie6.business.Account;
 import ch.hearc.ig.odi.serie6.business.Customer;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author jeremy.barfuss
  */
 @Named
-@RequestScoped
-public class CustomerDetailsBean {
+@SessionScoped
+public class CustomerDetailsBean implements Serializable{
 
     Customer customer;
     /**
@@ -31,7 +32,10 @@ public class CustomerDetailsBean {
     }
     
     public List<Account> getAccountsList() {
-        return new ArrayList(this.customer.getAccounts().values());
+        if(this.customer != null)
+            return new ArrayList(this.customer.getAccounts().values());
+        else
+            return null;
     }
     
 }

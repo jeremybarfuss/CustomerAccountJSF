@@ -44,6 +44,13 @@
                 </f:facet>
                 <h:outputText value="#{account.rate}" />
             </h:column>
+            <h:column>
+                <h:form>
+                    <h:commandButton value="#{resrc.details}" action="accountDetails">
+                        <f:actionListener binding="#{accountDetailsBean.setAccount(account)}" />
+                    </h:commandButton>
+                </h:form>
+            </h:column>
         </h:dataTable>
         <h:button value="#{resrc.retourAccueil}" outcome="customersList" />
 
