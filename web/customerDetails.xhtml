@@ -52,6 +52,12 @@
                 </h:form>
             </h:column>
         </h:dataTable>
+        <h:form>
+            <h:commandButton value="#{resrc.ajouterCompte}" action="createAccount">
+                <f:actionListener binding="#{accountCreateBean.setCustomer(customerDetailsBean.customer)}" />
+            </h:commandButton>
+        </h:form>
+        <br />
         <h:button value="#{resrc.retourAccueil}" outcome="customersList" />
 
     </h:body>

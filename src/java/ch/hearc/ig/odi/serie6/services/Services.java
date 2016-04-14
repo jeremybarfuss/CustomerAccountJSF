@@ -52,6 +52,10 @@ public class Services implements Serializable {
         bank.addCustomer(number, fn, ln);
     }
 
+    public void saveAccount(String number, String label, double rate, Customer customer) throws AccountAlreadyExistException {
+        bank.addAccount(number, label, rate, customer);
+    }
+
     /**
      * Retourne le client de la banque qui correspond au numéro passé en
      * paramètre.

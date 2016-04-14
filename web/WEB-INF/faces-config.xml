@@ -21,6 +21,13 @@
             <to-view-id>/createCustomerOk.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/createAccount.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>valider</from-outcome>
+            <to-view-id>/createAccountOk.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     
     <managed-bean>
         <managed-bean-name>customersBean</managed-bean-name>
@@ -37,5 +44,9 @@
     <managed-bean>
         <managed-bean-name>accountDetailsBean</managed-bean-name>
         <managed-bean-class>ch.hearc.ig.odi.serie6.beans.AccountDetailsBean</managed-bean-class>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>accountCreateBean</managed-bean-name>
+        <managed-bean-class>ch.hearc.ig.odi.serie6.beans.AccountCreateBean</managed-bean-class>
     </managed-bean>
 </faces-config>

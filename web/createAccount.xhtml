@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><h:outputText value="#{resrc.createAccountTitre}" /></title>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="#{resrc.ajouterCompte}" /></h1>
+        <h:form>
+            <h:outputLabel value="#{resrc.numero} : " for="numero" />
+            <h:inputText id="numero" required="true" requiredMessage="#{resrc.numeroObligatoire}" value="#{accountCreateBean.number}" /><br />
+            <h:outputLabel value="#{resrc.libelle} : " for="libelle" />
+            <h:inputText id="libelle" required="true" requiredMessage="#{resrc.libelleObligatoire}" value="#{accountCreateBean.name}" /><br />
+            <h:outputLabel value="#{resrc.taux} : " for="taux" />
+            <h:inputText id="taux" required="true" requiredMessage="#{resrc.tauxObligatoire}" value="#{accountCreateBean.rate}" /><br />
+
+            <h:commandButton type="reset" value="#{resrc.reinit}" />
+            <h:commandButton action="#{accountCreateBean.ajouterCompte()}" value="#{resrc.valider}" />
+
+        </h:form>
+        <h:button value="#{resrc.annuler}" outcome="customerDetails" />
+        <h:messages />
+    </h:body>
+</html>
